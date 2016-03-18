@@ -53,7 +53,7 @@ end
 
 function __hash_openssl_available -a algorithm
   type -q -- openssl
-    and openssl list-message-digest-algorithms | grep -i -x -- $algorithm > /dev/null
+    and openssl list-message-digest-algorithms | grep --ignore-case --line-regexp --quiet -- $algorithm
 end
 
 function __hash_openssl -a algorithm string

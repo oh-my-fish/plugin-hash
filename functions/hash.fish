@@ -37,7 +37,7 @@ end
 
 function __hash_gnu -a algorithm string
   test -n $string
-    and echo $string | eval {"$algorithm"}sum | cut -d ' ' -f 1
+    and echo -n $string | eval {"$algorithm"}sum | cut -d ' ' -f 1
     or eval {"$algorithm"}sum | cut -d ' ' -f 1
 end
 
@@ -58,6 +58,6 @@ end
 
 function __hash_openssl -a algorithm string
   test -n $string
-    and echo $string | openssl dgst -$algorithm -r | cut -d ' ' -f 1
+    and echo -n $string | openssl dgst -$algorithm -r | cut -d ' ' -f 1
     or openssl dgst -$algorithm -r | cut -d ' ' -f 1
 end
